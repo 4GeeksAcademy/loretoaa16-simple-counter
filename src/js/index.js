@@ -6,8 +6,13 @@ import ReactDOM from "react-dom/client";
 import "../styles/index.css";
 
 //import your own components
-import Home from "./component/home.jsx";
+import { Counter } from "./component/Counter.jsx";
+
 
 //render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
-
+const root = ReactDOM.createRoot(document.getElementById('app'));
+let seconds = 0;
+setInterval(() => {
+    root.render(<Counter seconds={seconds} />);
+    seconds ++;
+}, 1000);
